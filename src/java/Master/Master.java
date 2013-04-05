@@ -11,7 +11,6 @@ package Master;
  */
 public class Master {
     Master master = new Master();
-    public Master() {}
     public Master getInstance(){
         if(master==null){
             master = new Master();
