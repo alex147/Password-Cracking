@@ -4,6 +4,7 @@
  */
 package Wrapper;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -19,14 +20,15 @@ public class Wrapper {
     /**
      * This is a sample web service operation
      */
-//    @WebMethod(operationName = "getDictionaryPart")
-//    public List<String> getDictionaryPart(){
-//       return list; 
-//    }
-//    @WebMethod(operationName = "getPasswordFile")
-//    public List<String> getPasswordFile(){
-//        return list;
-//    }
+    
+    @WebMethod(operationName = "getDictionaryPart")
+    public List<String> getDictionaryPart(){
+       return new ArrayList<String>(); 
+    }
+    @WebMethod(operationName = "getPasswordFile")
+    public List<String> getPasswordFile(){
+        return new ArrayList<String>();
+    }
     @WebMethod(operationName = "sendCracked")
     public void sendCracked(List<String> list){
         
