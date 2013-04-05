@@ -19,14 +19,14 @@ public class Wrapper {
     /**
      * This is a sample web service operation
      */
-    @WebMethod(operationName = "getDictionaryPart")
-    public List<String> getDictionaryPart(){
-       return list; 
-    }
-    @WebMethod(operationName = "getPasswordFile")
-    public List<String> getPasswordFile(){
-        return list;
-    }
+//    @WebMethod(operationName = "getDictionaryPart")
+//    public List<String> getDictionaryPart(){
+//       return list; 
+//    }
+//    @WebMethod(operationName = "getPasswordFile")
+//    public List<String> getPasswordFile(){
+//        return list;
+//    }
     @WebMethod(operationName = "sendCracked")
     public void sendCracked(List<String> list){
         
