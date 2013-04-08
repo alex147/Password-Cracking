@@ -23,7 +23,6 @@ public class Wrapper {
     private Master master = Master.getInstance();
     private PassFileOpener passFileOpener = PassFileOpener.getInstance();
     private static final Logger logger = Logger.getLogger("DPCLogger");
-    private FileHandler handler;
 
     @WebMethod(operationName = "getDictionaryPart")
     public List<String> getDictionaryPart() throws IOException {
@@ -44,7 +43,7 @@ public class Wrapper {
     }
 
     private void setLogger() throws IOException {
-        handler = new FileHandler("C:\\DPC_Log.txt");
+        FileHandler handler = new FileHandler("C:\\DPC_Log.txt");
         handler.setFormatter(new MyFormatter());
         logger.addHandler(handler);
     }
