@@ -37,9 +37,9 @@ public class Wrapper {
 
     @WebMethod(operationName = "sendCracked")
     public void sendCracked(List<String> list) throws IOException {
-        if (timesCalled == 0) {
+        timesCalled++;
+        if (timesCalled == 1) {
             setLogger();
-            timesCalled++;
         }
         for (int i = 0; i < list.size(); i++) {
             logger.info(list.get(i));
