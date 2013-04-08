@@ -1,20 +1,53 @@
 package Master;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  *
  * @author Admin
  */
 public class Master {
+
+    private BufferedReader bufferedReader = null;
+    private static int timesCalled = 0;
+    private static int linesNumber = 311141;
+    private List<String> dictionaryList = new LinkedList<>();
     Master master = new Master();
-    public Master getInstance(){
-        if(master==null){
+
+    public Master getInstance() {
+        if (master == null) {
             master = new Master();
         }
         return master;
+    }
+
+    public List<String> getDictionary(int usersNumber) throws IOException {
+        timesCalled++;
+        if (timesCalled == 1) {
+            openDictionaryFile();
+        } else {
+            bufferedReader.reset();
+        }
+        String line;
+        for (int i = 0; i < linesNumber / usersNumber; i++) {
+            line = bufferedReader.readLine();
+            if (line == null) {
+                break;
+            } else {
+                dictionaryList.add(line);
+            }
+            bufferedReader.mark(i);
+        }
+        return dictionaryList;
+    }
+
+    private void openDictionaryFile() throws IOException {
+        try (FileReader fileReader = new FileReader("webster-dictionary.txt")) {
+            bufferedReader = new BufferedReader(fileReader);
+        }
     }
 }
