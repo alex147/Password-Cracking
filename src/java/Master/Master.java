@@ -15,7 +15,6 @@ public class Master {
     private BufferedReader bufferedReader = null;
     private static int timesCalled = 0;
     private static int linesNumber = 311141;
-    private List<String> dictionaryList = new LinkedList<>();
     private static Master master = new Master();
 
     public static Master getInstance() {
@@ -26,6 +25,7 @@ public class Master {
     }
 
     public List<String> getDictionary(int usersNumber) throws IOException {
+        List<String> dictionaryList = new LinkedList<>();
         timesCalled++;
         if (timesCalled == 1) {
             openDictionaryFile();
