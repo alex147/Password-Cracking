@@ -23,6 +23,7 @@ public class Wrapper {
     private Master master = Master.getInstance();
     private PassFileOpener passFileOpener = PassFileOpener.getInstance();
     private static final Logger logger = Logger.getLogger("DPCLogger");
+    private static int timesCalled = 0;
 
     @WebMethod(operationName = "getDictionaryPart")
     public List<String> getDictionaryPart() throws IOException {
@@ -36,14 +37,17 @@ public class Wrapper {
 
     @WebMethod(operationName = "sendCracked")
     public void sendCracked(List<String> list) throws IOException {
-        setLogger();
-        for(int i = 0; i<list.size(); i++){
-        logger.info(list.get(i));
+        if (timesCalled == 0) {
+            setLogger();
+            timesCalled++;
+        }
+        for (int i = 0; i < list.size(); i++) {
+            logger.info(list.get(i));
         }
     }
 
     private void setLogger() throws IOException {
-        FileHandler handler = new FileHandler("C:\\DPC_Log.txt");
+        FileHandler handler = new FileHandler("C:\\DPC_Log.txt", true);
         handler.setFormatter(new MyFormatter());
         logger.addHandler(handler);
     }
