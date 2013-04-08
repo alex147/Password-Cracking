@@ -40,7 +40,7 @@ public class Master {
             } else {
                 dictionaryList.add(line);
             }
-            bufferedReader.mark(i);
+            bufferedReader.mark(1);
         }
         return dictionaryList;
     }
