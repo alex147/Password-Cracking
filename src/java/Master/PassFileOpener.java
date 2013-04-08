@@ -7,20 +7,28 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
+ * Reads the password file.
+ * 
  * @author Admin
  */
 public class PassFileOpener {
 
     private static PassFileOpener passFileOpener = new PassFileOpener();
-
+    /**
+     * 
+     * @return A new instance of passfileopener
+     */
     public static PassFileOpener getInstance() {
         if (passFileOpener == null) {
             passFileOpener = new PassFileOpener();
         }
         return passFileOpener;
     }
-
+    /**
+     * 
+     * @return A list containing usernames and passwords
+     * @throws IOException 
+     */
     public List<String> getPassFile() throws IOException{
         List<String> passList = new LinkedList<>();
         try (FileReader fileReader = new FileReader("C:\\passwords.txt")) {

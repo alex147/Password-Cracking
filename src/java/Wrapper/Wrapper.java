@@ -24,17 +24,32 @@ public class Wrapper {
     private PassFileOpener passFileOpener = PassFileOpener.getInstance();
     private static final Logger logger = Logger.getLogger("DPCLogger");
     private static int timesCalled = 0;
-
+    
+    /**
+     * Sends parts of the dictionary to clients.
+     * 
+     * @throws IOException 
+     */
     @WebMethod(operationName = "getDictionaryPart")
     public List<String> getDictionaryPart() throws IOException {
         return master.getDictionary(usersNumber);
     }
-
+    /**
+     * Sends the password file to clients.
+     * 
+     * @throws IOException 
+     */
     @WebMethod(operationName = "getPasswordFile")
     public List<String> getPasswordFile() throws IOException {
         return passFileOpener.getPassFile();
     }
-
+    
+    /**
+     * Logs the cracked passwords.
+     * 
+     * @param list A list of cracked passwords sent from the clients
+     * @throws IOException 
+     */
     @WebMethod(operationName = "sendCracked")
     public void sendCracked(List<String> list) throws IOException {
         timesCalled++;
