@@ -5,6 +5,7 @@
 package Wrapper;
 
 import Master.*;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
@@ -19,11 +20,11 @@ import javax.jws.WebParam;
 public class Wrapper {
 
     private static int usersNumber = 4;
-    Master master = new Master();
+    private Master master = Master.getInstance();
 
     @WebMethod(operationName = "getDictionaryPart")
-    public List<String> getDictionaryPart() {
-        return new ArrayList<String>();
+    public List<String> getDictionaryPart() throws IOException{
+        return master.getDictionary(usersNumber);
     }
 
     @WebMethod(operationName = "getPasswordFile")

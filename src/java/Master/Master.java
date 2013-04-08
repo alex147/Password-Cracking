@@ -16,9 +16,9 @@ public class Master {
     private static int timesCalled = 0;
     private static int linesNumber = 311141;
     private List<String> dictionaryList = new LinkedList<>();
-    Master master = new Master();
+    private static Master master = new Master();
 
-    public Master getInstance() {
+    public static Master getInstance() {
         if (master == null) {
             master = new Master();
         }
