@@ -47,7 +47,7 @@ public class Master {
     }
 
     private void openDictionaryFile() throws IOException {
-        FileReader fileReader = null;
+        FileReader fileReader;
         try{
             fileReader = new FileReader("C:\\webster-dictionary.txt");
             bufferedReader = new BufferedReader(fileReader);
