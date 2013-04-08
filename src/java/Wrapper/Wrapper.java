@@ -6,11 +6,9 @@ package Wrapper;
 
 import Master.*;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 
 /**
  *
