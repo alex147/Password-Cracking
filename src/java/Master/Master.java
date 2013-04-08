@@ -29,8 +29,11 @@ public class Master {
         List<String> dictionaryList = new LinkedList<>();
         timesCalled++;
         if (timesCalled == 1) {
-            try(FileReader fileReader = new FileReader("C:\\webster-dictionary.txt")){
+            try{
+                FileReader fileReader = new FileReader("C:\\webster-dictionary.txt");
                 bufferedReader = new BufferedReader(fileReader);
+            }catch (FileNotFoundException exception){
+                System.err.println(exception.getMessage());
             }
 //            openDictionaryFile();
         }
