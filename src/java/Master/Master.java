@@ -28,7 +28,7 @@ public class Master {
     public List<String> getDictionary(int usersNumber) throws IOException {
         List<String> dictionaryList = new LinkedList<>();
         timesCalled++;
-        if (timesCalled == 1) {
+//        if (timesCalled == 1) {
             try{
                 FileReader fileReader = new FileReader("C:\\webster-dictionary.txt");
                 bufferedReader = new BufferedReader(fileReader);
@@ -36,7 +36,7 @@ public class Master {
                 System.err.println(exception.getMessage());
             }
 //            openDictionaryFile();
-        }
+//        }
 //        else {
 //            bufferedReader.reset();
 //        }
