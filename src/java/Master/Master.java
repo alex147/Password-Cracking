@@ -29,9 +29,10 @@ public class Master {
         timesCalled++;
         if (timesCalled == 1) {
             openDictionaryFile();
-        } else {
-            bufferedReader.reset();
         }
+//        else {
+//            bufferedReader.reset();
+//        }
         String line;
         for (int i = 0; i < linesNumber / usersNumber; i++) {
             line = bufferedReader.readLine();
@@ -40,14 +41,18 @@ public class Master {
             } else {
                 dictionaryList.add(line);
             }
-            bufferedReader.mark(1);
+//            bufferedReader.mark(1);
         }
         return dictionaryList;
     }
 
     private void openDictionaryFile() throws IOException {
-        try (FileReader fileReader = new FileReader("C:\\webster-dictionary.txt")) {
+        FileReader fileReader = null;
+        try{
+            fileReader = new FileReader("C:\\webster-dictionary.txt");
             bufferedReader = new BufferedReader(fileReader);
+        }catch (IOException exception){
+            System.err.println(exception.getMessage());
         }
     }
 }
