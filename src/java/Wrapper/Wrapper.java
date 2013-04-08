@@ -47,7 +47,7 @@ public class Wrapper {
     }
 
     private void setLogger() throws IOException {
-        FileHandler handler = new FileHandler("C:\\DPC_Log.txt", true);
+        FileHandler handler = new FileHandler("C:\\DPC_Log.txt");
         handler.setFormatter(new MyFormatter());
         logger.addHandler(handler);
     }
