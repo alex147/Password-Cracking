@@ -29,8 +29,7 @@ public class Master {
         timesCalled++;
         if (timesCalled == 1) {
             openDictionaryFile();
-        }
-        else {
+        } else {
             bufferedReader.reset();
         }
         String line;
