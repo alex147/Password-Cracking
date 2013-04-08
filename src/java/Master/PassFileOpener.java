@@ -23,7 +23,7 @@ public class PassFileOpener {
 
     public List<String> getPassFile() throws IOException{
         List<String> passList = new LinkedList<>();
-        try (FileReader fileReader = new FileReader("passwords.txt")) {
+        try (FileReader fileReader = new FileReader("C:\\passwords.txt")) {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line;
             while(true){
