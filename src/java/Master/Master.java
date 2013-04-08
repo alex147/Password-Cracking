@@ -6,8 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -16,18 +14,11 @@ import java.util.logging.Logger;
 public class Master {
 
     private static BufferedReader bufferedReader = null;
-    private static FileReader fileReader;
     private static int timesCalled = 0;
     private static int linesNumber = 311141;
     private static Master master = new Master();
 
     public static Master getInstance() {
-        try {
-            fileReader = new FileReader("C:\\webster-dictionary.txt");
-            bufferedReader = new BufferedReader(fileReader);
-        } catch (FileNotFoundException exception) {
-            System.err.println(exception.getMessage());
-        }
         if (master == null) {
             master = new Master();
         }
@@ -37,9 +28,12 @@ public class Master {
     public List<String> getDictionary(int usersNumber) throws IOException {
         List<String> dictionaryList = new LinkedList<>();
         timesCalled++;
-//        if (timesCalled == 1) {
+        if (timesCalled == 1) {
+            try(FileReader fileReader = new FileReader("C:\\webster-dictionary.txt")){
+                bufferedReader = new BufferedReader(fileReader);
+            }
 //            openDictionaryFile();
-//        }
+        }
 //        else {
 //            bufferedReader.reset();
 //        }
